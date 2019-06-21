@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Top News</string>
+    <string name="error">Something went wrong</string>
+    <string name="simple_activity_transition">simple_activity_transition</string>
+    <string name="favourites">Favourites</string>
+    <string name="last_news">Last news</string>
+    <string name="just_now">Just now</string>
+    <string name="hours_ago">hours ago</string>
+    <string name="minute_ago">minute ago</string>
+    <string name="ok">ok</string>
+    <string name="the_news_added_your_favorite">The news added your favorite</string>
+    <string name="the_news_deleted">The news deleted from favorite</string>
+    <string name="show_my_saved_news">Show my saved news</string>
+    <string name="the_news_saved_for_offline_read">The news saved for offline read</string>
+    <string name="the_news_removed">The news removed</string>
+    <string name="you_havent_saved_news_yet">You haven\'t saved news yet</string>
+    <string name="new_news_are_available">New news are available</string>
+    <string name="tap_to_see">Tap to see</string>
+    <string name="your_saved_news">Your Saved News</string>
+</resources>

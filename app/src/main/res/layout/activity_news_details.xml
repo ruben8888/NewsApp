@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.newsapp.view.viewModel.NewsDetailsVM" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.NewsDetailsActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@{viewModel.newsItem.webTitle}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="Title" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dataTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.getArticlePubicData}"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    tools:ignore="RelativeOverlap"
+                    tools:text="Title" />
+
+
+                <ImageView
+                    android:id="@+id/pin"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:onClick="@{(view) -> viewModel.favoriteViewClick()}"
+                    android:src="@{!viewModel.isFavorite ? @drawable/ic_favorite : @drawable/ic_favorite_filled}"
+                    android:tint="@color/colorPrimary"
+                    tools:src="@drawable/ic_favorite" />
+
+
+                <ImageView
+                    android:id="@+id/save"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_toStartOf="@+id/pin"
+                    android:onClick="@{(view) -> viewModel.saveViewClick()}"
+                    android:src="@{!viewModel.isSavedItem? @drawable/ic_save : @drawable/ic_save_filled}"
+                    android:tint="@color/colorPrimary"
+                    tools:src="@drawable/ic_save" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/simple_activity_transition"
+                app:src="@{viewModel.newsItem.fields.thumbnail}"
+                tools:ignore="UnusedAttribute" />
+
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:lineSpacingExtra="2dp"
+                android:text="@{viewModel.newsItem.fields.bodyText}"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </ScrollView>
+</layout>
